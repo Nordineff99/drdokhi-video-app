@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRDOKHI Ai - Video Call</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DRDOKHI Ai - Video Call</h1>
+
+        <div id="join-screen" class="screen active">
+            <input type="text" id="call-code-input" placeholder="Enter Call Code">
+            <button id="join-button">Join Call</button>
+            <p class="explanation">
+                Enter a unique code to start or join a call. Share this code with your friends!
+            </p>
+        </div>
+
+        <div id="call-screen" class="screen">
+            <div class="video-container">
+                <video id="local-video" autoplay muted></video>
+                <div id="remote-videos">
+                    </div>
+            </div>
+
+            <div class="controls">
+                <button id="toggle-mic" class="control-button"><img src="https://img.icons8.com/ios-filled/24/ffffff/microphone.png" alt="Mic On"></button>
+                <button id="toggle-camera" class="control-button"><img src="https://img.icons8.com/ios-filled/24/ffffff/video-camera.png" alt="Camera On"></button>
+                <button id="toggle-screenshare" class="control-button"><img src="https://img.icons8.com/ios-filled/24/ffffff/laptop-mac--v1.png" alt="Share Screen"></button>
+                <button id="hangup-button" class="control-button hangup"><img src="https://img.icons8.com/ios-filled/24/ffffff/phone-disconnected.png" alt="Hang Up"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

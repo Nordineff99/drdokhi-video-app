@@ -1,0 +1,204 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #282c34;
+    color: #f0f0f0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.container {
+    background-color: #3a404a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* For screen positioning */
+}
+
+h1 {
+    color: #61dafb;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    flex-grow: 1; /* Allows screens to take available space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.screen.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Join Screen Specifics */
+#join-screen input {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 300px;
+    font-size: 1.1em;
+    background-color: #4a505b;
+    color: #f0f0f0;
+}
+
+#join-screen input::placeholder {
+    color: #a0a0a0;
+}
+
+#join-screen button, .controls .control-button {
+    background-color: #61dafb;
+    color: #282c34;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 10px; /* Added for control buttons */
+}
+
+#join-screen button:hover, .controls .control-button:hover {
+    background-color: #4dc2ea;
+}
+
+.explanation {
+    margin-top: 20px;
+    color: #a0a0a0;
+    font-size: 0.9em;
+    max-width: 400px;
+}
+
+/* Call Screen Specifics */
+#call-screen {
+    flex-direction: column; /* Ensure vertical layout */
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows remote videos to wrap */
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    flex-grow: 1; /* Takes up space for videos */
+    margin-bottom: 20px;
+    max-height: calc(100% - 100px); /* Adjust based on control height */
+    overflow-y: auto; /* Enable scrolling if many videos */
+}
+
+video {
+    background-color: #1a1e24;
+    border: 2px solid #555;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px; /* Adjust max width for local video */
+    height: auto;
+    max-height: 250px; /* Max height for local video */
+    object-fit: cover; /* Ensures video fills element without stretching */
+}
+
+#local-video {
+    width: 100%;
+    max-width: 300px; /* Local video can be smaller */
+    height: 180px;
+    border-color: #61dafb; /* Highlight local video */
+}
+
+#remote-videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    flex-grow: 1;
+}
+
+#remote-videos video {
+    width: 100%;
+    max-width: 300px; /* Remote videos */
+    height: 180px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #2c3038;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.controls .control-button {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4a505b;
+    color: #fff;
+}
+
+.controls .control-button img {
+    width: 24px;
+    height: 24px;
+    filter: invert(100%); /* Make icons white */
+}
+
+.controls .control-button.active {
+    background-color: #61dafb; /* Active state for mic/camera */
+}
+
+.controls .control-button.hangup {
+    background-color: #e74c3c;
+}
+
+.controls .control-button.hangup:hover {
+    background-color: #c0392b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .container {
+        padding: 20px;
+        min-height: 400px;
+    }
+
+    #join-screen input {
+        width: 90%;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+    }
+
+    .controls .control-button {
+        margin: 5px;
+    }
+}
